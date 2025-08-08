@@ -1,17 +1,25 @@
-What is Hibernate?**
+
+
+# 📚 Hibernate Tutorial
+
+## ❓ What is Hibernate?
 
 **Hibernate** is a **Java-based ORM (Object Relational Mapping) tool** used to interact with relational databases. It maps Java classes to database tables and Java data types to SQL data types.
 
-#### Why use Hibernate?
+---
 
-* It handles all the low-level JDBC code.
-* No need to write complex SQL queries to perform CRUD operations.
-* It's database-independent – switching databases is easy.
-* It supports caching to improve performance.
-* Automatic table creation using annotations or XML mapping.
-* Helps maintain relationships (one-to-many, many-to-many) between entities.
+## ⚡ Why use Hibernate?
 
-#### Key Features:
+* ✅ It handles all the low-level JDBC code.
+* ✅ No need to write complex SQL queries to perform CRUD operations.
+* ✅ It's database-independent – switching databases is easy.
+* ✅ It supports caching to improve performance.
+* ✅ Automatic table creation using annotations or XML mapping.
+* ✅ Helps maintain relationships (one-to-many, many-to-many) between entities.
+
+---
+
+## 🛠️ Key Features:
 
 * **ORM**: Maps Java objects to database tables.
 * **HQL (Hibernate Query Language)**: Object-oriented query language (like SQL, but works with objects).
@@ -19,13 +27,16 @@ What is Hibernate?**
 * **Lazy Loading**: Loads data only when needed.
 * **Transaction Management**: Integrates with JTA and JDBC transactions.
 
-// Hibernate Configuration
-Firstly we need to add DTD "Document Type Definition" in out xml.
+---
 
-          
-  Hibernate.cfg.xml
-  
-  <?xml version="1.0" encoding="UTF-8"?>
+## ⚙️ Hibernate Configuration
+
+Firstly we need to add DTD "Document Type Definition" in our XML.
+
+```xml
+<!-- Hibernate.cfg.xml -->
+
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-configuration PUBLIC
 "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
@@ -42,15 +53,15 @@ Firstly we need to add DTD "Document Type Definition" in out xml.
 		<mapping class="com.mavenlearn.Student"/>
 	</session-factory>
 </hibernate-configuration>
- 
-       
-			
-			
--> Session factory is an interface factory for providing sessions.
-	
+```
 
-App.java
+> **Note:** Session factory is an interface factory for providing sessions.
 
+---
+
+## 🧑‍💻 App.java
+
+```java
 package com.mavenlearn;
 
 import org.hibernate.Session;
@@ -67,11 +78,11 @@ public class App
     public static void main( String[] args )
     {
         System.out.println( "Project started" );
-	// session factory is an interface so we can not make the object so we would be required a class to make the object.
+		// session factory is an interface so we can not make the object so we would be required a class to make the object.
 	    
 	    //SessionFactory factory=new Configuration().configure().buildSessionFactory();
 	    
-	                  //   or below code seprately or we can code in one line as mentioned above.
+	    // or below code separately or we can code in one line as mentioned above.
 	    
         Configuration cfg=new Configuration();
         cfg.configure("hibernate.cfg.xml");
@@ -93,12 +104,13 @@ public class App
        
     }
 }
+```
 
-----------------------------------------------------------------------------------
-	
-	
-pom.xml
+---
 
+## 📦 pom.xml
+
+```xml
 <project xmlns="http://maven.apache.org/POM/4.0.0"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
@@ -130,7 +142,6 @@ pom.xml
 			<version>8.0.31</version>
 		</dependency>
 
-
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
@@ -139,12 +150,13 @@ pom.xml
 		</dependency>
 	</dependencies>
 </project>
+```
 
+---
 
----------------------------------------------------------
+## 🧑‍🎓 Student.java
 
-Student.java
-
+```java
 package com.mavenlearn;
 
 import javax.persistence.Entity;
@@ -156,39 +168,53 @@ public class Student {
     private int id;
     private  String name;
     private String city;
+    
 	public Student(int id, String name, String city) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.city = city;
 	}
+	
 	public Student() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	
 	public int getId() {
 		return id;
 	}
+	
 	public void setId(int id) {
 		this.id = id;
 	}
+	
 	public String getName() {
 		return name;
 	}
+	
 	public void setName(String name) {
 		this.name = name;
 	}
+	
 	public String getCity() {
 		return city;
 	}
+	
 	public void setCity(String city) {
 		this.city = city;
 	}
+	
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
 		return this.id+" : "+this.name+" : "+this.city;
-	}
-	
-    
+	}   
 }
+```
+
+---
+
+**Happy Coding! 🚀**
+
+---
